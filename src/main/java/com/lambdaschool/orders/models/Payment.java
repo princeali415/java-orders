@@ -15,7 +15,7 @@ public class Payment
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long paymentid;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String type;
 
     // relationships with orderpayments wihich is many to many
