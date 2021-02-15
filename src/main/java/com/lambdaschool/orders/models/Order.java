@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "orders")
-public class Orders
+public class Order
 {
     // fields
 
@@ -14,40 +14,37 @@ public class Orders
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long ordnum;
-
-    private double advanceamount;
-
     @Column(nullable = false)
-    private double ordamount;
 
-    private String orderdescription;
+    private double ordamount;
+    private double advanceamount;
 
     @ManyToOne
     @JoinColumn(name = "custcode", nullable = false)
     @JsonIgnoreProperties(value = "orders", allowSetters = true)
     private Customer customer;
 
+    private String orderdescription;
 
     // CONSTRUCTORS
-    public Orders()
+
+    public Order()
     {
         //required by jpa
     }
 
-    public Orders(
-        double advanceamount,
+    public Order(
         double ordamount,
-        String orderdescription,
-        Customer customer)
+        double advanceamount,
+        Customer customer,
+        String orderdescription)
     {
-        this.advanceamount = advanceamount;
         this.ordamount = ordamount;
-        this.orderdescription = orderdescription;
+        this.advanceamount = advanceamount;
         this.customer = customer;
+        this.orderdescription = orderdescription;
     }
 
-
-    // Getters and Setters
     public long getOrdnum()
     {
         return ordnum;
@@ -56,16 +53,6 @@ public class Orders
     public void setOrdnum(long ordnum)
     {
         this.ordnum = ordnum;
-    }
-
-    public double getAdvanceamount()
-    {
-        return advanceamount;
-    }
-
-    public void setAdvanceamount(double advanceamount)
-    {
-        this.advanceamount = advanceamount;
     }
 
     public double getOrdamount()
@@ -78,14 +65,14 @@ public class Orders
         this.ordamount = ordamount;
     }
 
-    public String getOrderdescription()
+    public double getAdvanceamount()
     {
-        return orderdescription;
+        return advanceamount;
     }
 
-    public void setOrderdescription(String orderdescription)
+    public void setAdvanceamount(double advanceamount)
     {
-        this.orderdescription = orderdescription;
+        this.advanceamount = advanceamount;
     }
 
     public Customer getCustomer()
@@ -96,5 +83,15 @@ public class Orders
     public void setCustomer(Customer customer)
     {
         this.customer = customer;
+    }
+
+    public String getOrderdescription()
+    {
+        return orderdescription;
+    }
+
+    public void setOrderdescription(String orderdescription)
+    {
+        this.orderdescription = orderdescription;
     }
 }
