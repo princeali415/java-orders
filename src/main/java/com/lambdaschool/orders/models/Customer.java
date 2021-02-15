@@ -61,7 +61,6 @@ public class Customer
         String phone,
         double recieveamt,
         String workingarea,
-        List<Order> orders,
         Agent agent)
     {
         this.custcity = custcity;
@@ -74,7 +73,6 @@ public class Customer
         this.phone = phone;
         this.recieveamt = recieveamt;
         this.workingarea = workingarea;
-        this.orders = orders;
         this.agent = agent;
     }
 
