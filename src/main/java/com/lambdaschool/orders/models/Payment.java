@@ -18,7 +18,7 @@ public class Payment
     @Column(nullable = false, unique = true)
     private String type;
 
-    // relationships with orderpayments wihich is many to many
+    // relationships with orders payments which is many to many
     @ManyToMany
     @JoinTable(name = "orderspayments", joinColumns = @JoinColumn(name = "paymentid"), inverseJoinColumns = @JoinColumn(name = "ordnum"))
     @JsonIgnoreProperties(value = "orders")
@@ -66,4 +66,6 @@ public class Payment
     {
         this.orders = orders;
     }
+
+
 }
