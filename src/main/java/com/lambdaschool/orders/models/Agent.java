@@ -1,7 +1,5 @@
 package com.lambdaschool.orders.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,17 +13,15 @@ public class Agent
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long agentcode;
 
-    @Column(nullable = false)
     private String agentname;
-
-    private double commission;
-    private String country;
-    private String phone;
     private String workingarea;
+    private double commission;
+    private String phone;
+    private String country;
+
 
     // one to many relationship with customer
-    @OneToMany(mappedBy = "agent")
-    @JsonIgnoreProperties(value = {"agent", "orders"}, allowSetters = true)
+    @OneToMany(mappedBy = "agents")
     private List<Customer> customers = new ArrayList<>();
 
     // constructors
@@ -37,16 +33,16 @@ public class Agent
 
     public Agent(
         String agentname,
+        String workingarea,
         double commission,
-        String country,
         String phone,
-        String workingarea)
+        String country)
     {
         this.agentname = agentname;
-        this.commission = commission;
-        this.country = country;
-        this.phone = phone;
         this.workingarea = workingarea;
+        this.commission = commission;
+        this.phone = phone;
+        this.country = country;
     }
 
     // getters and setters
