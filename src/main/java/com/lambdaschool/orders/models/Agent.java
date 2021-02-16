@@ -21,7 +21,7 @@ public class Agent
 
 
     // one to many relationship with customer
-    @OneToMany(mappedBy = "agents")
+    @OneToMany(mappedBy = "agent")
     private List<Customer> customers = new ArrayList<>();
 
     // constructors

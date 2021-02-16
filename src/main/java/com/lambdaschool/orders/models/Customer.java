@@ -24,12 +24,12 @@ public class Customer
     private double outstandingamt;
     private double paymentamt;
     private String phone;
-    private double recieveamt;
+    private double receiveamt;
     private String workingarea;
 
     //fields with relationships (one to many and many to many)
 
-    @OneToMany(mappedBy = "customers", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Order> orders = new ArrayList<>();
 
 
@@ -66,7 +66,7 @@ public class Customer
         this.outstandingamt = outstandingamt;
         this.paymentamt = paymentamt;
         this.phone = phone;
-        this.recieveamt = recieveamt;
+        this.receiveamt = recieveamt;
         this.workingarea = workingarea;
         this.agent = agent;
     }
@@ -161,14 +161,14 @@ public class Customer
         this.phone = phone;
     }
 
-    public double getRecieveamt()
+    public double getReceiveamt()
     {
-        return recieveamt;
+        return receiveamt;
     }
 
-    public void setRecieveamt(double recieveamt)
+    public void setReceiveamt(double recieveamt)
     {
-        this.recieveamt = recieveamt;
+        this.receiveamt = recieveamt;
     }
 
     public String getWorkingarea()

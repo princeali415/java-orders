@@ -17,7 +17,7 @@ public class Payment
     private String type;
 
     // relationships with orders payments which is many to many
-    @ManyToMany()
+    @ManyToMany
     @JoinTable(name = "orderspayments", joinColumns = @JoinColumn(name = "paymentid"), inverseJoinColumns = @JoinColumn(name = "ordnum"))
     private Set<Order> orders = new HashSet<>();
 
