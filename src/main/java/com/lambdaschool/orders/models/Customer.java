@@ -26,7 +26,7 @@ public class Customer
     private double outstandingamt;
     private double paymentamt;
     private String phone;
-    private double receiveamt;
+    private double recieveamt;
     private String workingarea;
 
     //fields with relationships (one to many and many to many)
@@ -49,7 +49,8 @@ public class Customer
         //required by JPA
     }
 
-    public Customer(
+    public Customer(        // order matters, make it the sam eas the seed data
+        String phone,
         String custcity,
         String custcountry,
         String custname,
@@ -57,7 +58,6 @@ public class Customer
         double openingamt,
         double outstandingamt,
         double paymentamt,
-        String phone,
         double recieveamt,
         String workingarea,
         Agent agent)
@@ -70,7 +70,7 @@ public class Customer
         this.outstandingamt = outstandingamt;
         this.paymentamt = paymentamt;
         this.phone = phone;
-        this.receiveamt = recieveamt;
+        this.recieveamt = recieveamt;
         this.workingarea = workingarea;
         this.agent = agent;
     }
@@ -165,14 +165,14 @@ public class Customer
         this.phone = phone;
     }
 
-    public double getReceiveamt()
+    public double getRecieveamt()
     {
-        return receiveamt;
+        return recieveamt;
     }
 
-    public void setReceiveamt(double recieveamt)
+    public void setRecieveamt(double recieveamt)
     {
-        this.receiveamt = recieveamt;
+        this.recieveamt = recieveamt;
     }
 
     public String getWorkingarea()
